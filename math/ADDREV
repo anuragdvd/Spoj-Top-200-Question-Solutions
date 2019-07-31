@@ -1,0 +1,35 @@
+// https://www.spoj.com/status/ADDREV
+
+#include<bits/stdc++.h>
+#define fr(i,c,b) for(int i=c;i<b;i++)
+#define si(x) int x; scanf("%d", &x)
+#define sll(x) ll x; scanf("%lld", &x)
+#define pi(x) printf("%d", x)
+#define pll(x) printf("%lld", x)
+#define nl printf("\n")
+#define watch(x) cout << (#x) << " is " << (x) << endl
+
+typedef long long int ll;
+
+using namespace std;
+
+ll rev(int n)
+{
+    ll res=0;
+    while(n>0)
+    {
+        res=res*10+n%10;
+        n/=10;
+    }
+    return res;
+}
+
+int main()
+{
+    si(t);
+    while(t--)
+    {
+    sll(a); sll(b);
+    cout<<rev(rev(a)+rev(b))<<endl;    
+    }
+}
