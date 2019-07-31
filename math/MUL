@@ -1,0 +1,21 @@
+//https://www.spoj.com/problems/MUL/
+
+#include <boost/multiprecision/cpp_int.hpp>
+#include <iostream>
+namespace mp = boost::multiprecision;
+using namespace std;
+
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        mp::cpp_int a; 
+        mp::cpp_int b;
+        cin>>a>>b;
+        mp::cpp_int c=a*b;
+        cout<<c<<endl;
+        
+    }
+}
