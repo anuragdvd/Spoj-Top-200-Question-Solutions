@@ -1,0 +1,22 @@
+//https://www.spoj.com/problems/FCTRL2/
+
+#include <boost/multiprecision/cpp_int.hpp>
+#include <iostream>
+namespace mp = boost::multiprecision;
+using namespace std;
+ 
+int main()
+{
+    int t;
+    cin>>t;
+    while(t--)
+    {
+                mp::cpp_int a; 
+                cin>>a;
+                mp::cpp_int ans=1;
+                mp::cpp_int b=1;
+                for(;b<=a;b++)
+                    ans*=b;
+                cout<<ans<<endl;
+    }
+}
