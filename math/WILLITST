@@ -1,0 +1,16 @@
+// https://www.spoj.com/problems/WILLITST/
+// PLAY WITH BITS
+
+#include<bits/stdc++.h>
+#define si(x) int x; scanf("%d", &x)
+#define sll(x) ll x; scanf("%lld", &x)
+typedef long long int ll;
+using namespace std;
+int main()
+{
+    sll(n);
+    if(n&&(!(n&(n-1)))||n==1)
+        cout<<"TAK"<<endl;
+    else
+        cout<<"NIE"<<endl;
+}
