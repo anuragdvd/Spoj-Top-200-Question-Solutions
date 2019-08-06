@@ -1,0 +1,102 @@
+//https://www.spoj.com/problems/PRIME1/
+
+#include<bits/stdc++.h>
+#define fr(i,c,b) for(int i=c;i<b;i++)
+#define si(x) int x; scanf("%d", &x)
+#define frl(i,c,b) for(ll i=c;i<b;i++)
+#define sll(x) ll x; scanf("%lld", &x)
+#define pi(x) printf("%d", x)
+#define pll(x) printf("%lld", x)
+#define nl printf("\n")
+#define watch(x) cout << (#x) << " is " << (x) << endl
+#define M 1000000007
+#define MAX 100001
+
+typedef long long int ll;
+
+using namespace std;
+
+vector<int> pre(int a[])
+{
+    
+    fr(i,0,MAX)
+        a[i]=0;
+        
+    a[0]=1, a[1]=1;
+     
+
+    for(int i=2;i*i<MAX;i++)
+    {
+        if(a[i]==0)
+        {
+            for(int j=i*i;j<MAX;j+=i)
+               a[j]=1;
+        }
+    }
+    vector<int> b;
+    b.push_back(2);
+    
+    for(int i=3;i<MAX;i+=2)
+    {
+        if(a[i]==0)
+           { b.push_back(i);
+
+           }
+    }
+    
+   
+    return b;
+}
+
+void printprime(vector<int> a,ll l,ll r)
+{
+    ll n=r-l+1;
+    
+    ll ans[n];
+    
+    fr(i,0,n)
+        ans[i]=1;
+    
+    for(int i=0;a[i]*(ll)a[i]<=r;i++)
+    {
+        ll base=(l/(a[i]))*(a[i]);
+        
+        if(base<l)
+            base+=a[i];
+       
+       // watch(base);
+        for(ll j=base;j<=r;j+=a[i]) 
+        {
+            ans[j-l]=0;
+        }
+        if(base==a[i])
+        {
+            ans[base-l]=1;
+        }
+    }
+    
+    fr(i,0,n)
+    {
+        if(ans[i]==1&&i+l!=1)
+            {
+                pi(i+l); nl;
+            }
+    }
+    
+}
+
+int main()
+{
+    int prea[MAX];
+   
+    vector<int> prime=pre(prea);
+    
+    si(t);
+    while(t--)
+    {
+        sll(l); sll(r);
+        printprime(prime,l,r);
+        
+    }
+}
+
