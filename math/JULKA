@@ -1,0 +1,20 @@
+// https://www.spoj.com/problems/JULKA/
+
+#include <boost/multiprecision/cpp_int.hpp>
+#include <iostream>
+namespace mp = boost::multiprecision;
+using namespace std;
+
+int main()
+{
+    int t=10;
+   while(t--)
+    {
+        mp::cpp_int a; 
+        mp::cpp_int b;
+        cin>>a>>b;
+        mp::cpp_int mid=a/2;
+        mp::cpp_int x=mid+(b/2); mp::cpp_int y=mid-(b/2);
+        cout<<x<<endl<<y<<endl;
+    }
+}
